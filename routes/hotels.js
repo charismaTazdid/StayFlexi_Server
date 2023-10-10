@@ -1,5 +1,5 @@
 import express from "express";
-import { createHotel, deleteHotel, getAllHotel, getSingleHotel, updateHotel } from "../controllers/hotelController.js";
+import { createHotel, deleteHotel, getAllHotel, getAllHotelByCity, getSingleHotel, updateHotel } from "../controllers/hotelController.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 
@@ -17,7 +17,18 @@ hotelRouter.delete("/:id", verifyAdmin, deleteHotel);
 //GET ALL HOTELS
 hotelRouter.get("/", getAllHotel);
 
+
+// GET HOTEL BY FEATURRS
+hotelRouter.get("/count_by_city", getAllHotelByCity)
+
+// hotelRouter.get("/countByType", getAllHotelByType)
+
+
 //GET ONE HOTEL BY ID
 hotelRouter.get("/:id", getSingleHotel);
+
+
+
+
 
 export default hotelRouter;
